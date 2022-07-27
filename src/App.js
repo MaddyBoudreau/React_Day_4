@@ -8,6 +8,7 @@ import { BrowserRouter as Router,
 import Profile from './views/Profile'
 import Home from './views/Home'
 import Inventory from './views/Inventory'
+import InventorySingle from './views/InventorySingle'
 
 export default function App() {
 
@@ -20,17 +21,21 @@ export default function App() {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/inventory">Inventory</Link>
+                            <Link to="/Inventory">Inventory</Link>
                         </li>
                         <li>
-                            <Link to="/profile">Profile</Link>
+                            <Link to="/Profile">Profile</Link>
                         </li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/inventory" element={<Inventory />} />
+                    <Route path="/Profile" element={<Profile />} />
+                    <Route path="Inventory">
+                        {/* URL Prefix of /Inventory */}
+                        <Route path=":id" element={<InventorySingle />} />
+                        <Route path="" element={<Inventory />} />
+                    </Route>
                     <Route path="/" element={<Home />}  />
                 </Routes>
             </Router>

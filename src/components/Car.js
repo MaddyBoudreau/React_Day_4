@@ -1,11 +1,34 @@
+import { Link } from 'react-router-dom'
+
 export default function Car(props) {
-    console.log(props)
+    
+    function buildHeader() {
+        let resHeader;
+
+        if (!props.hideLink) {
+            resHeader = (
+                <Link to={"/Inventory/" + props.car.id}>
+                    {props.car.id + 1}: { props.car.name }
+                </Link>
+            )
+        } else {
+            resHeader = (
+                <>{props.car.id + 1}: { props.car.name }</>
+            )
+        }
+
+        return resHeader
+    }
 
     return (
-        <div className="card">
-            <h2>{ props.car.make }</h2>
-            <p>{ props.car.model }</p>
+        <div className="card card-item">
+            <h2>
+                { buildHeader() }
+            </h2>
+            <p>{ props.car.name }</p>
             <p>{ props.car.year }</p>
+            <p>{ props.car.selling_price }</p>
+            <p>{ props.car.owner }</p>
         </div>
     )
 }
