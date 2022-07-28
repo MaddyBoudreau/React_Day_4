@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom'
 
 export default function Car(props) {
-    
+
     function buildHeader() {
         let resHeader;
 
         if (!props.hideLink) {
             resHeader = (
                 <Link to={"/Inventory/" + props.car.id}>
-                    {props.car.id + 1}: { props.car.name }
+                    {props.car.id}: { props.car.name }
                 </Link>
             )
         } else {
             resHeader = (
-                <>{props.car.id + 1}: { props.car.name }</>
+                <>{props.car.id}: { props.car.name }</>
             )
         }
 
@@ -25,10 +25,9 @@ export default function Car(props) {
             <h2>
                 { buildHeader() }
             </h2>
-            <p>{ props.car.name }</p>
             <p>{ props.car.year }</p>
-            <p>{ props.car.selling_price }</p>
-            <p>{ props.car.owner }</p>
+            <p>{ props.car.sellingPrice }</p>
+            {/* <p>Date Posted: { props.car.dateCreated.toDate().toLocaleDateString() }</p> */}
         </div>
     )
 }

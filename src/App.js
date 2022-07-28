@@ -9,6 +9,7 @@ import Profile from './views/Profile'
 import Home from './views/Home'
 import Inventory from './views/Inventory'
 import InventorySingle from './views/InventorySingle'
+import firebase from './firebase'
 
 export default function App() {
 
