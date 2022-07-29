@@ -1,9 +1,15 @@
+import { useContext } from 'react'
+import { DataContext } from '../contexts/DataProvider'
+
 export default function CarForm() {
+    const { addCar } = useContext(DataContext)
 
     function handleSubmit(event) {
         event.preventDefault()
         const formData = new FormData(event.target)
         const data = Object.fromEntries(formData)
+        addCar(data.name, data.year, data.sellingPrice)
+        event.target.reset()
         // console.log(data.name, data.year)
     }
 
@@ -18,8 +24,8 @@ export default function CarForm() {
                 <input type="text" name="year" id="" />
             </div>
             <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input type="text" name="price" id="" />
+                <label htmlFor="sellingPrice">Price</label>
+                <input type="text" name="sellingPrice" id="" />
             </div>
             <button type="submit">Add Car</button>
         </form>
