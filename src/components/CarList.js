@@ -4,7 +4,7 @@ import { DataContext } from '../contexts/DataProvider'
 
 export default function CarList() {
     const { cars } = useContext(DataContext)
-
+    console.log(cars)
     return (
         <>
             {/* { 

@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <h1>Home</h1>
             {
-                (cars.length > 0) ?
+                (cars.length > 2) ?
                     <>
                         <Car car={cars[0]} />
                         <Car car={cars[1]} />
